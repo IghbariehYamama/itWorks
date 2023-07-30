@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body dir="rtl">
+    <h1>כל הרכבים</h1>
+    <hr>
+    <h3>הוסף רכב חדש</h3>
+    <div>
+        <table>
+            <thead>
+                <td>שם רכב</td>
+                <td>צבע</td>
+                <td>שנה</td>
+                <td>מספר רישוי</td>
+                <td>מחיר</td>
+                <td>קישור לתמונה</td>
+            </thead>
+            <tr>
+                <td><input id="name" placeholder="הכנס שם רכב" type="text"/></td>
+                <td><input id="color" placeholder="הכנס צבע רכב" type="text"/></td>
+                <td><input id="year" placeholder="הכנס שנת רכב" type="number"/></td>
+                <td><input id="licenseNum" placeholder="הכנס מספר רישוי" type="number"/></td>
+                <td><input id="price" placeholder="הכנס מחיר רכב" type="number"/></td>
+                <td><input id="photo" placeholder="קישור לתמונה" type="text"/></td>
+                <td><input id="add" value="הוסף" onclick="createCar()" type="button"/></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+
+    <div id="existCars" style="display:none;">
+    <h3>רכבים קיימים במערכת</h3>
+    <table id="table">
+        <thead>
+            <td>שם רכב</td>
+            <td>צבע</td>
+            <td>שנה</td>
+            <td>מספר רישוי</td>
+            <td>מחיר</td>
+            <td>קישור לתמונה</td>
+            <td><button onclick="next()"> >>> </button></td>
+            <td><button onclick="back()"> <<< </button></td>
+        </thead>
+    </table>
+    </div>
+
+    <script src="./cars.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myimg"></div>
+    <script>
+        async function init(){
+            console.log("Emily");
+            //חיבור לדיב שנמצא בטופס
+            const divImg = document.getElementById("myimg");
+            //הפעלת הפונקציה שמביאה ממים
+            const mem = await getmemes();
+            //יצירת אובייקט שיכול להכיל תמונה
+            let array = random(3);
+            for(let i =0; i<array.length; i++){
+            const img = document.createElement("img");
+            //הגדרה של גודל התמונה
+            img.width = 200;
+            //קבלת הכתובת של התמונה מהמערך של התמונות
+            img.src = mem[i].url;
+            //הוספת האובייקט של התמונה לדיב
+            divImg.appendChild(img);
+            //יצירת פסקה
+            const paragraph = document.createElement("p");
+            //הוספת טקסט לפסקה מאותו מקום במערך
+            paragraph.innerText = mem[i].name;
+            //הוספת הפסקה לדיב
+            divImg.appendChild(paragraph);
+            }
+        }
+
+        init();
+
+        async function getmemes(){
+            //יצירת כתובת של האתר
+            const mem = "https://api.imgflip.com/get_memes";
+            //קריאת הכתובת
+            const result = await fetch(mem);
+            //הפיכת המידע למערך
+            const json = await result.json();
+            //החזרת המערך של הממים
+            return json.data.memes;
+        }
+
+        function random(val){
+            let array = [];
+            for(let i=0; i<val; i++){
+                let result = Math.random();
+                result *= 100;
+                result = Math.round(result);
+                array.push(result);
+            }
+            return array;
+        }
+    </script>
+</body>
+</html>
